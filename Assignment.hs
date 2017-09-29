@@ -17,8 +17,8 @@
 -}
 
 {-
-  by Daan Dieperink and Sor?n ???????
-      -s2014203          -s???????
+  by Daan Dieperink and Sorin Bighiu
+      -s2014203          -s1857371
 -}
 
 module Assignment where
@@ -72,12 +72,41 @@ module Assignment where
 
 --(b)
 
+{- Here's my solutions to Q1, it might be a bit messy, but I suppose you can tidy this up. It's actually really messy 
+
+-- 1.II: 
+mynot a | a == 0 = 1
+        | otherwise = 0
+
+myand a b | a == 1 && a == b = 1 
+          | otherwise = 0
+
+myor a b | a == 1 || b == 1 = 1
+         | otherwise = 0
+
+myimply a b | a == 1 && b == 0 = 0
+            | otherwise = 1
+
+-- 1 III
+st p q r = myand p q
+rt p q r = myor q p
+truthtable st = [(p,q,r, st p q r) | p<- [0,1], q<- [0,1], r<- [0,1]]
+
+-- 1 IV
+counterEx st rt = [(p, q, r) | p <- [0,1], q<- [0,1], r<- [0,1], st p q r /= rt p q r ]
+equiv st rt | truthtable st == truthtable rt = 1
+            | otherwise = 0
+
+-}
+
+
 {-
   We can use the implies relation we defined earlier to now define:
     (p and q) implies r
       and
     p implies (q implies r)
 -}
+ 
 
   questionB :: Bool -> Bool -> Bool -> Bool
   questionB p q = implies (p && q)
@@ -138,6 +167,20 @@ module Assignment where
 
 -- Question 2
 
+{- My solution to it - Sorin
+-- 2.II 
+apply [] x = 0
+apply ((c,e):ces) x = c*x^e + apply ces x 
+
+-- 2.III
+diff ces = [(c*e,e-1) | (c,e) <- ces]
+
+-- 2 IV
+diffK 0 ces = [ces]
+diffK k ces = diffK (k-1) (diff ces)
+
+-}
+
   mynot :: Int -> Int
   mynot 0 = 1
   mynot _ = 0
@@ -186,3 +229,19 @@ module Assignment where
   And yet again, we have already defined the answer to (a part of) the question.
 -}
 --equiv = equivalent3
+
+
+
+{- Question / Exercise 2 -}
+-- 2.II 
+apply [] x = 0
+apply ((c,e):ces) x = c*x^e + apply ces x 
+
+-- 2.III
+diff ces = [(c*e,e-1) | (c,e) <- ces]
+
+-- 2 IV
+diffK 0 ces = [ces]
+diffK k ces = diffK (k-1) (diff ces)
+
+
