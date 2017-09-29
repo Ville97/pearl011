@@ -1,13 +1,11 @@
 {-# LANGUAGE ExplicitForAll #-}
 
 {-
-  READ THIS
+  ! READ THIS !
     IN QUESTIONS 1 AND 2, BOOLEAN VALUES SHOULD NOT BE USED, INSTEAD,
     INTEGERS 0 AND 1 SHOULD BE USED EXCLUSIVELY.
     THIS HAS TO BE CHANGES THROUGHOUT QUESTION1 AND CHECKED FOR FURTHER QUESTIONS.
 -}
-
-
 
 {-
   by Daan and Sorin
@@ -104,3 +102,23 @@ module Assignment where
 -}
 
 -- Question 2
+
+  mynot :: Int -> Int
+  mynot 0 = 1
+  mynot _ = 0
+
+  myand :: Int -> Int -> Int
+  myand 1 1 = 1
+  myand _ _ = 0
+
+  myor :: Int -> Int -> Int
+  myor 0 0 = 0
+  myor _ _ = 1
+
+  myimply :: Int -> Int -> Int
+  myimply 1 0 = 0
+  myimply _ _ = 1
+
+-- Question 3
+
+  
