@@ -29,7 +29,7 @@ module Assignment where
 
 {-
   p implies q is equivalent to not (p and (not q)).
-  This is expressable in Haskell as the following:
+    This is expressable in Haskell as the following:
 -}
 
   implies :: Bool -> Bool -> Bool
@@ -117,6 +117,9 @@ module Assignment where
 
 --(c)
 
+
+-- GIVE COUNTER EXAMPLE !
+
   questionC :: Bool -> Bool -> Bool -> Bool
   questionC p q r = implies (not p) r && (q || r)
 
@@ -182,4 +185,4 @@ module Assignment where
 {-
   And yet again, we have already defined the answer to (a part of) the question.
 -}
---equiv r1 r2 = equivalent3 r1 r2
+--equiv = equivalent3
