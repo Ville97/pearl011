@@ -1,6 +1,15 @@
 {-# LANGUAGE ExplicitForAll #-}
 
 {-
+  READ THIS
+    IN QUESTIONS 1 AND 2, BOOLEAN VALUES SHOULD NOT BE USED, INSTEAD,
+    INTEGERS 0 AND 1 SHOULD BE USED EXCLUSIVELY.
+    THIS HAS TO BE CHANGES THROUGHOUT QUESTION1 AND CHECKED FOR FURTHER QUESTIONS.
+-}
+
+
+
+{-
   by Daan and Sorin
 -}
 
@@ -93,3 +102,5 @@ module Assignment where
     *Assignment> answerto1C
               => False
 -}
+
+-- Question 2
