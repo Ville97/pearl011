@@ -9,6 +9,13 @@
     Basically all Bool's have to be converted to 0's and 1's (Int's)
 -}
 
+
+{-
+  Also before I forget
+  Questions 1 through 5 here should be renamed
+    to Questions I though V
+-}
+
 {-
   by Daan Dieperink and Sor?n ???????
       -s2014203          -s???????
@@ -48,8 +55,12 @@ module Assignment where
     we can observe if they truly are equivalent:
 -}
 
+  equivalent2 :: (Bool -> Bool -> Bool) -> (Bool -> Bool -> Bool) -> Bool
+  equivalent2 r1 r2 = table2 r1 == table2 r2
+
+
   answerto1A :: Bool
-  answerto1A = table2 implies == table2 implies'
+  answerto1A = equivalent2 implies implies'
 
 {-
   This will yield the following result:
@@ -91,8 +102,12 @@ module Assignment where
   table3 relation = [(p,q,r,res) | p<-b,q<-b,r<-b,res<-b, res == relation p q r]
     where b = [False, True]
 
+  equivalent3 :: (Bool -> Bool -> Bool -> Bool) -> (Bool -> Bool -> Bool -> Bool) -> Bool
+  equivalent3 r1 r2 = table3 r1 == table3 r2
+
+
   answerto1B :: Bool
-  answerto1B = table3 questionB == table3 questionB'
+  answerto1B = equivalent3 questionB questionB'
 
 {-
     *Assignment> answerto1B
@@ -109,7 +124,7 @@ module Assignment where
   questionC' p q r = (p && q) || (not p && r)
 
   answerto1C :: Bool
-  answerto1C = table3 questionC == table3 questionC'
+  answerto1C = equivalent3 questionC questionC'
 
 {-
     *Assignment> answerto1C
@@ -156,10 +171,15 @@ module Assignment where
   -- a1 :: Int -> Int -> Int -> Int
   -- a1 p q r = myimply p q
   --
-  -- truthtable :: (Int -> Int -> Int -> Int) -> [(Bool, Bool, Bool, Bool)]
+  -- truthtable :: (Int -> Int -> Int -> Int) -> [(Int, Int, Int, Int)]
   -- truthtable = table3
   --
   -- answertoQ3 :: [(Bool, Bool, Bool, Bool)]
   -- answertoQ3 = truthtable a1
 
-  
+-- Question IV
+
+{-
+  And yet again, we have already defined the answer to (a part of) the question.
+-}
+--equiv r1 r2 = equivalent3 r1 r2
